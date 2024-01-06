@@ -1,0 +1,114 @@
+{
+    "Insert figure": {
+        "prefix": "latex-figure",
+        "body": [
+            "\\begin{figure}[H]",
+                "\t\\includegraphics[scale=${1:0.8}, angle=${2:0}]{${3:path}}",
+                "\t\\centering",
+                "\t\\caption{${4:caption}}",
+                "\t\\label{${5:label}}",
+            "\\end{figure}"
+        ],
+        "description": "Insert centered figure with caption."
+    },
+
+    "Insert table": {
+        "prefix": "latex-table",
+        "body": [
+            "\\begin{table}[H]",
+                "\t\\centering",
+                "\t\\begin{tabular}{||c|c||}",
+                "\t\\hline",
+                "\tkey & val \\\\\\\\ [0.5ex]",
+                "\t\\hline \\hline",
+                "\t\\hline",
+                "\tkey0 & val0 \\\\\\",
+                "\t\\hline",
+                "\tkey1 & val1 \\\\\\",
+                "\t\\hline",
+                "\t\\end{tabular}",
+                "\t\\caption{${1:caption}}",
+                "\t\\label{${2:label}}",
+            "\\end{table}"
+        ],
+        "description": "Insert centered table with caption."
+    },
+
+    "Insert reference": {
+        "prefix": "bibtex-reference",
+        "body": [
+            "@misc{${1:label},",
+                "\ttitle={${2:title}},",
+                "\tauthor={${3:authors}},", // e.g. lastname, firstname and lastname, firstname and ...
+                "\tyear={${4:published year} (Abgerufen: ${5:date}, ${6:time} Uhr)},",
+                "\thowpublished = \"\\url{${7:link}}\"",
+            "}"
+        ],
+        "description": "Insert reference."
+    },
+
+    "Insert code from file": {
+        "prefix": "latex-code-file",
+        "body": [
+            "\\lstinputlisting[language=${1:language}]{${2:path}}"
+        ],
+        "description": "Insert code from file."
+    },
+
+    "Insert bullet points": {
+        "prefix": "latex-bullet-points",
+        "body": [
+            "\\begin{itemize}",
+                "\t\\item $1",
+            "\\end{itemize}"
+        ],
+        "description": "Insert bullet points."
+    },
+
+    "Insert align block": {
+        "prefix": "latex-align-block",
+        "body": [
+            "\\begin{align*}",
+                "\t$1",
+            "\\end{align*}"
+        ],
+        "description": "Insert align block."
+    },
+
+    "Insert matrix": {
+        "prefix": "latex-matrix",
+        "body": [
+            "\\begin{bmatrix}",
+                "\t$1",
+            "\\end{bmatrix}"
+        ],
+        "description": "Insert align matrix."
+    },
+
+    "Insert begin block": {
+        "prefix": "latex-begin",
+        "body": [
+            "\\begin{$1}",
+                "\t$2",
+            "\\end{$1}"
+        ],
+        "description": "Insert begin block."
+    },
+
+    "Insert equation": {
+        "prefix": "latex-equation",
+        "body": [
+            "\\[ $1 \\]"
+        ],
+        "description": "Insert equation."
+    },
+
+    "Insert fraction": {
+        "prefix": "latex-fraction",
+        "body": [
+            "\\frac{$1}{$2}"
+        ],
+        "description": "Insert fraction."
+    },
+
+}

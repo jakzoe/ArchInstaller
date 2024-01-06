@@ -1,0 +1,38 @@
+#!/bin/bash
+
+less <<EOF
+#====Tips & Tricks====
+
+# limit the CPU-usage of a specific process:
+# cpulimit -l 50 -p 5081
+
+# du -h == disk usage #(-h == human redable) size of a folder
+# df -h == disk free  #(-h == human redable), free space of a mounted partition/max size of a tmpfs
+
+# ArchWiki:
+# Make sure to have the Arch install media or another Linux "live" CD/USB available so you can easily rescue your system if there is a problem after updating
+# If you are running Arch in a production environment, or cannot afford downtime for any reason, test changes to configuration files, as well as updates to software packages, 
+# on a non-critical duplicate system first. Then, if no problems arise, roll out the changes to the production system.
+# Users must equally be aware that upgrading packages can raise unexpected problems that could need immediate intervention; therefore, it is discouraged to upgrade a 
+# stable system shortly before it is required for carrying out an important task. Instead, wait to upgrade until there is enough time available to resolve any post-upgrade issues.
+
+# downgrading using local cache:
+# check /var/log/pacman.log
+# search for fixes onlne, if there aren't any:
+# sudo pacman -U /var/cache/pacman/pkg/name-version.pkg.tar.gz
+
+# find broken links:
+# sudo find / -xtype l -print
+
+# removing orphans:
+# sudo \pacman -Rns $(\pacman -Qdtq)
+
+# list packages by size:
+# \pacman -Qi | grep 'Name\|Size\|Description' | cut -d: -f2 | paste - - - | awk -F'\t' 'BEGIN{ s["MiB"]=1024; s["KiB"]=1;} {split($3, a, " "); print a[1] * s[a[2]], "KiB", $1}' | sort -n
+# in Megabytes:
+# \pacman -Qi | grep 'Name\|Size\|Description' | cut -d: -f2 | paste - - - | awk -F'\t' 'BEGIN{ s["MiB"]=1; s["KiB"]=0.001;} {split($3, a, " "); printf "%.2f", a[1] * s[a[2]]; print " MiB", $1}' | sort -n
+
+# list wifi passwords:
+# sudo grep -r '^psk=' /etc/NetworkManager/system-connections/
+
+EOF
