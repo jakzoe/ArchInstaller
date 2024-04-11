@@ -887,7 +887,7 @@ yay -S zotero-bin
 pacman -Sgq texlive | grep -v texlive-fontsextra | pacman -S -
 # making fonts available to Fontconfig
 sudo ln -s /usr/share/fontconfig/conf.avail/09-texlive-fonts.conf /etc/fonts/conf.d/09-texlive-fonts.conf
-fc-cache
+fc-cache && mkfontscale && mkfontdir
 
 # video-downloader
 pacman -S yt-dlp ffmpeg
