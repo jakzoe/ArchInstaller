@@ -887,6 +887,8 @@ yay -S zotero-bin
 pacman -Sgq texlive | grep -v texlive-fontsextra | pacman -S -
 # making fonts available to Fontconfig
 sudo ln -s /usr/share/fontconfig/conf.avail/09-texlive-fonts.conf /etc/fonts/conf.d/09-texlive-fonts.conf
+# running mkfontscale && mkfontdir explicitly, and therefore installing xorg-mkfontscale and xorg-mkfontdir, might not be necessary, though
+pacman -S xorg-mkfontscale xorg-mkfontdir
 fc-cache && mkfontscale && mkfontdir
 
 # video-downloader
