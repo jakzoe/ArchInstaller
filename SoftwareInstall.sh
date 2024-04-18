@@ -894,6 +894,8 @@ fc-cache && mkfontscale && mkfontdir
 # video-downloader
 pacman -S yt-dlp ffmpeg
 
+pacman -S noise-suppression-for-voice
+
 #yay -S ttf-ms-win11-auto
 
 #====Security====
