@@ -1,0 +1,57 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+r ctrl+p",
+        "command": "python.execInTerminal"
+    },
+    {
+        "key": "ctrl+d ctrl+p",
+        "command": "debugpy.debugInTerminal"
+    },
+    {
+        "key": "ctrl+r ctrl+a",
+        "command": "arduino.verify"
+    },
+    {
+        "key": "ctrl+alt+r",
+        "command": "-arduino.verify"
+    },
+    {
+        "key": "ctrl+u ctrl+a",
+        "command": "arduino.upload"
+    },
+    {
+        "key": "ctrl+alt+u",
+        "command": "-arduino.upload"
+    },
+    {
+        "key": "ctrl+b ctrl+l",
+        "command": "latex-workshop.build",
+        "when": "config.latex-workshop.bind.altKeymap.enabled && !virtualWorkspace && editorLangId =~ /^latex$|^latex-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/"
+    },
+    {
+        "key": "ctrl+l alt+b",
+        "command": "-latex-workshop.build",
+        "when": "config.latex-workshop.bind.altKeymap.enabled && !virtualWorkspace && editorLangId =~ /^latex$|^latex-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/"
+    },
+    {
+        "key": "ctrl+l ctrl+p",
+        "command": "latex-workshop.view",
+        "when": "!config.latex-workshop.bind.altKeymap.enabled && !virtualWorkspace && editorLangId =~ /^latex$|^latex-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/"
+    },
+    {
+        "key": "ctrl+alt+v",
+        "command": "-latex-workshop.view",
+        "when": "!config.latex-workshop.bind.altKeymap.enabled && !virtualWorkspace && editorLangId =~ /^latex$|^latex-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/"
+    },
+    {
+        "key": "ctrl+b ctrl+l",
+        "command": "latex-workshop.build",
+        "when": "!config.latex-workshop.bind.altKeymap.enabled && !virtualWorkspace && editorLangId =~ /^latex$|^latex-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/"
+    },
+    {
+        "key": "ctrl+alt+b",
+        "command": "-latex-workshop.build",
+        "when": "!config.latex-workshop.bind.altKeymap.enabled && !virtualWorkspace && editorLangId =~ /^latex$|^latex-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/"
+    }
+]
