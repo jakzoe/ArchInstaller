@@ -274,6 +274,12 @@ pacman -S sudo --noconfirm --needed
 echo "Defaults insults" >> /etc/sudoers
 sed -i '/^# %wheel ALL=(ALL:ALL) ALL/s/^# //' /etc/sudoers
 
+pacman -S usbguard --noconfirm --needed
+usbguard generate-policy > /etc/usbguard/rules.conf
+systemctl enable --now usbguard.service
+# allow Bluetooth
+usbguard allow-device -p $(lsusb | grep "Bluetooth" | grep -oP 'ID \K\S+' | awk '{print $1}')
+
 if lspci | grep -iq 'intel'; then
     pacman -S intel-media-driver --noconfirm --needed
 elif lspci | grep -iq 'amd'; then
@@ -511,6 +517,9 @@ set_value BUILDDIR \\/run\\/user\\/1000 /mnt/home/$USER_NAME/.config/pacman/make
 # anything-sync-daemon and yay (for building packages, see the post-install-script) will use a RAM disk. Increase the size in case of out of storage:
 uncomment RuntimeDirectorySize= /mnt/etc/systemd/logind.conf
 set_value RuntimeDirectorySize "20%" /mnt/etc/systemd/logind.conf
+
+
+set_value IPCAllowedUsers "root $USER_NAME" /mnt/etc/usbguard/usbguard-daemon.conf
 
 # speed up by caching compiled profiles
 if [ "$APPARMOR" != "" ]; then
