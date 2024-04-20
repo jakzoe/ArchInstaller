@@ -142,8 +142,8 @@ alias lal='exa -alg --color=always --group-directories-first'  # all long format
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
 alias l.='exa -a | grep -E "^\."'
 
-alias poweroff='systemctl poweroff -i'
-alias reboot='systemctl reboot -i'
+alias poweroff="systemctl poweroff -i"
+alias reboot="systemctl reboot -i"
 
 # when kitty is used
 alias icat="kitty +kitten icat"
@@ -153,6 +153,14 @@ alias d="kitty +kitten diff"
 # when wl-copy has been used, kitty waits for it to "finish" when running the exit command, which will prevent kitty from closing
 alias wl-copy="kitty +kitten clipboard"
 alias clip="wl-copy"
+
+alias ugl="usbguard list-devices"
+alias uga="usbguard allow-device"
+alias ugb="usbguard block-device"
+alias ugap="usbguard allow-device -p"
+alias ugbp="usbguard block-device -p"
+alias usbguard-global-disable="usbguard set-parameter ImplicitPolicyTarget allow"
+alias usbguard-global-enable="usbguard set-parameter ImplicitPolicyTarget block"
 
 export SUDO_PROMPT="$(tput bold setaf 1)Password:$(tput sgr0) "
 
