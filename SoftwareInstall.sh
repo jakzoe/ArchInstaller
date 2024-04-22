@@ -435,6 +435,8 @@ pacman -S thunar thunar-archive-plugin file-roller thunar-volman thunar-media-ta
 # zsh instead of bash
 pacman -S zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search zsh-theme-powerlevel10k
 pacman -S bash-completion
+# alternative to "cd"
+pacman -S zoxide fzf
 
 pacman -S nano-syntax-highlighting
 #curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh
