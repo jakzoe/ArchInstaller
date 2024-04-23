@@ -173,6 +173,12 @@ ranger() {
     fi
 }
 
+locknano() {
+  sudo chattr -i $1
+  sudo nano $1
+  sudo chattr +i $1
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 eval "$(zoxide init --cmd cd zsh)"
