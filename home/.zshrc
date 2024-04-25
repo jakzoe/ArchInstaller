@@ -162,6 +162,8 @@ alias ugbp="usbguard block-device -p"
 alias usbguard-global-disable="usbguard set-parameter ImplicitPolicyTarget allow"
 alias usbguard-global-enable="usbguard set-parameter ImplicitPolicyTarget block"
 
+alias sshk="kitten ssh"
+
 export SUDO_PROMPT="$(tput bold setaf 1)Password:$(tput sgr0) "
 
 # prevent nested ranger instances
