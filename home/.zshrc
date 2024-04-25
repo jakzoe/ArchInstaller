@@ -12,8 +12,6 @@ export EDITOR="nano"           # probably faster than vim
 export VISUAL="nano"           # should change to something like subl
 export BROWSER="brave"
 export PAGER="less"
-# better compatibility than xterm-kitty
-export TERM=xterm-256color
 
 #export WLR_EGL_NO_MODIFIERS=1
 #export XDG_CURRENT_DESKTOP=Hyprland
