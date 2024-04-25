@@ -209,6 +209,8 @@ sudo systemctl enable --now thermald.service
 # USB-Tethering, one could also use systemd-networkd with udev instead (as always, see ArchWiki)
 pacman -S usb_modeswitch
 
+yay -S linux-wifi-hotspot
+
 # takes a long time, in most cases there is not even an NFS to connect to during boot. Target is needed by e.g. reflector though
 # (does not wait for internet-connection but finished NetworkManager startup)
 #sudo systemctl disable NetworkManager-wait-online.service
