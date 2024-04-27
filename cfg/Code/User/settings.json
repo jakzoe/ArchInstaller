@@ -157,5 +157,9 @@
   "editor.defaultFormatter": "ms-python.black-formatter",
   "arduino.useArduinoCli": true,
   "cmake.configureOnOpen": true,
-  "explorer.confirmDelete": false
+  "explorer.confirmDelete": false,
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "debug.onTaskErrors": "abort"
 }
