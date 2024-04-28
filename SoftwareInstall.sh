@@ -166,9 +166,12 @@ journalctl --disk-usage
 sudo journalctl --vacuum-time=7d
 sudo journalctl --vacuum-size=200M
 
-# set permanent hard-limit of 200M for journal-files
+# set permanent hard-limit of 50M for journal-files
 uncomment SystemMaxUse= /etc/systemd/journald.conf
 set_value SystemMaxUse 50M /etc/systemd/journald.conf
+# only save messages when the priority level of a given error is "warning" or lower
+uncomment MaxLevelStore= /etc/systemd/journald.conf
+set_value MaxLevelStore warning /etc/systemd/journald.conf
 
 #====Power Saving====
 
