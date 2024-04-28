@@ -421,8 +421,20 @@ yay -S hyprpicker-git swaylock-effects-git
 pacman -S grim slurp wl-clipboard
 yay -S grimblast-git
 
-# bluetooth
+# setup Bluetooth
 pacman -S bluez bluez-utils blueman
+# transfer files over Bluetooth
+pacman -S bluez-obex
+
+# allow .cache to be a symlink
+mkdir -p /home/$USER_NAME/.config/systemd/user/obex.service.d
+echo "
+[Service]
+ExecStart=
+ExecStart=/usr/lib/bluetooth/obexd --symlinks
+" > /home/$USER_NAME/.config/systemd/user/obex.service.d/10-symlink.conf
+
+# e.g. report battery level for some headsets
 uncomment "Experimental =" /etc/bluetooth/main.conf
 set_value "Experimental " " true" /etc/bluetooth/main.conf
 sudo systemctl enable --now bluetooth.service
