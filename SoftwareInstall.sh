@@ -168,7 +168,7 @@ sudo journalctl --vacuum-size=200M
 
 # set permanent hard-limit of 200M for journal-files
 uncomment SystemMaxUse= /etc/systemd/journald.conf
-set_value SystemMaxUse 200M /etc/systemd/journald.conf
+set_value SystemMaxUse 50M /etc/systemd/journald.conf
 
 #====Power Saving====
 
