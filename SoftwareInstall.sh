@@ -466,6 +466,12 @@ include \"/usr/share/nano-syntax-highlighting/*.nanorc\"
 # fix typo
 sudo sed -i 's/icolor brightnormal/icolor normal/g' /usr/share/nano-syntax-highlighting/nanorc.nanorc
 
+# set the default TerminalEmulator to kitty for exo-open
+mkdir -p /home/$USER_NAME/.config/xfce4
+echo "TerminalEmulator=kitty
+TerminalEmulatorDismissed=true" > /home/$USER_NAME/.config/xfce4/helpers.rc
+
+
 # keyd: configure shortcuts, e.g. caps lock + h = left, caps lock + l = right and so on
 yay -S keyd
 sudo systemctl enable keyd
