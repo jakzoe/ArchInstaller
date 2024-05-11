@@ -62,7 +62,6 @@ handle() {
 if monitor_setup "$(hyprctl monitors)"; then
   # when eDP-1 is on the right side
   hyprctl dispatch swapactiveworkspaces HDMI-A-1 eDP-1
-  echo yes
 fi
 
-socat -U - UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
+socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
