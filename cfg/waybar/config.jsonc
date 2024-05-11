@@ -161,7 +161,7 @@
         "device": "intel_backlight",
         "format": "{icon} {percent}%",
         "format-icons": ["󰃞", "󰃟", "󰃠"],
-        "on-click": "brightnessctl set $(brightnessctl get | awk '{if ($1 > 0) {print \"0\"} else {print \"100%%\"}}')",
+        "on-click": "brightnessctl set $(brightnessctl get | awk '{if ($1 > 0) {print \"0\"} else {print \"75%%\"}}')",
         "on-scroll-up": "brightnessctl set 2%+",
         "on-scroll-down": "brightnessctl set 2%-",
         "min-length": 6
