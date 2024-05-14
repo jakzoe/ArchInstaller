@@ -1037,8 +1037,8 @@ sudo du -sh ~/.cache
 # informant: blocks pacman until all downloaded Arch-Newsletters are marked as read
 yay -S informant
 
-# always show diffs
-yay --save --answerdiff All
+# set default answers
+yay --save --answerdiff All --answerupgrade All
 
 # kill the sudo -v job
 jobs
