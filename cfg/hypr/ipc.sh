@@ -36,26 +36,27 @@ removed_monitor(){
   fi
 }
 
-opened_window(){
+# not needed anymore
+# opened_window(){
 
-  pattern="^(.*)>>(.*)$"
+#   pattern="^(.*)>>(.*)$"
 
-  if [[ $1 =~ $pattern ]]; then
-    # event="${BASH_REMATCH[1]}"
-    data="${BASH_REMATCH[2]}"
+#   if [[ $1 =~ $pattern ]]; then
+#     # event="${BASH_REMATCH[1]}"
+#     data="${BASH_REMATCH[2]}"
 
-    # brave is not scaled correctly on startup when using wayland, this "fixes" the problem
-    if [[ $data == *"brave-browser"* ]]; then
-      hyprctl dispatch fullscreen ; sleep 0.5; hyprctl dispatch fullscreen
-    fi
-  fi
-}
+#     # brave is not scaled correctly on startup when using wayland, this "fixes" the problem
+#     if [[ $data == *"brave-browser"* ]]; then
+#      hyprctl dispatch fullscreen ; sleep 0.5; hyprctl dispatch fullscreen
+#     fi
+#   fi
+# }
 
 handle() {
   case $1 in
     monitoradded*) added_monitor $1;;
     monitorremoved*) removed_monitor $1;;
-    openwindow*) opened_window $1;;
+    # openwindow*) opened_window $1;;
   esac
 }
 
