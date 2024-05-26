@@ -186,5 +186,6 @@
     "bluetoothctl",
     "RFCOMM"
   ],
-  "python.languageServer": "Pylance"
+  "python.languageServer": "Pylance",
+  "latex-workshop.latex.autoBuild.run": "never"
 }
