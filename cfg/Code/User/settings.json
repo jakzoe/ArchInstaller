@@ -8,6 +8,10 @@
       "tools": ["latexmk"]
     },
     {
+      "name": "latexmk with shell escape",
+      "tools": ["latexmk_shell_escape"]
+    },
+    {
       "name": "latexmk (latexmkrc)",
       "tools": ["latexmk_rconly"]
     },
@@ -52,6 +56,22 @@
 //        "-outdir=%OUTDIR%",
         "-outdir=/run/user/1000",
         "-aux-directory=/run/user/1000",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "latexmk_shell_escape",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+         "-pdf",
+//        "-outdir=%OUTDIR%",
+        "-outdir=/run/user/1000",
+        "-aux-directory=/run/user/1000",
+        "-shell-escape",
         "%DOC%"
       ],
       "env": {}
@@ -161,5 +181,10 @@
   "[cpp]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
-  "debug.onTaskErrors": "abort"
+  "debug.onTaskErrors": "abort",
+  "cSpell.userWords": [
+    "bluetoothctl",
+    "RFCOMM"
+  ],
+  "python.languageServer": "Pylance"
 }
