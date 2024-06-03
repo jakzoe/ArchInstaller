@@ -652,8 +652,12 @@ touch \$XDG_RUNTIME_DIR/pipewire-0.lock
 # typing the password as $BROWSER_USER_NAME should make it unkeyloggable by $USER_NAME
 read -s -p \"Enter password for your database: \" PASSWORD
 sudo chvt 1
-echo \$PASSWORD | keepassxc --keyfile keyfile --pw-stdin Keys > /dev/null 2>&1 &
 brave --enable-features=UseOzonePlatform --ozone-platform=wayland > /dev/null 2>&1 &
+keepassxc > /dev/null 2>&1 &
+sleep 3
+# there is a bug with KeepassXC crashing when launching it with the correct password for the first time
+pkill keepassxc
+echo \$PASSWORD | keepassxc --keyfile keyfile --pw-stdin Keys > /dev/null 2>&1 &
 #physlock # -d -m -s
 vlock
 ' >> /home/$BROWSER_USER_NAME/.bash_profile"
