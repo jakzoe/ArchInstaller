@@ -658,6 +658,7 @@ sleep 3
 # there is a bug with KeepassXC crashing when launching it with the correct password for the first time
 pkill keepassxc
 echo \$PASSWORD | keepassxc --keyfile keyfile --pw-stdin Keys > /dev/null 2>&1 &
+unset PASSWORD
 #physlock # -d -m -s
 vlock
 ' >> /home/$BROWSER_USER_NAME/.bash_profile"
