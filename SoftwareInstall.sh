@@ -373,7 +373,7 @@ pacman -S python-chardet python-requests python-pillow
 # kitty: terminal
 # socat: used for hyprland IP C (socket communication)
 
-pacman -S hyprland waybar xdg-desktop-portal-hyprland xdg-desktop-portal-gtk rofi swaybg swayidle kitty socat
+pacman -S hyprland waybar xdg-desktop-portal-hyprland xdg-desktop-portal-gtk rofi hypridle kitty socat #hyprpaper
 
 auto_start+=(
 "export XDG_SCREENSHOTS_DIR=/run/user/$USER_ID/screenshots
