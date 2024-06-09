@@ -1025,6 +1025,7 @@ pacman -S xorg-xauth
 #thunar
 gsettings set org.gnome.desktop.interface gtk-theme "Arc-Dark"
 gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 pacman -S xfconf
 xfconf-query --create -t string -c xsettings -p /Net/ThemeName -s "Arc-Dark"
 xfconf-query --create -t string -c xsettings -p /Net/IconThemeName -s "Papirus-Dark"
