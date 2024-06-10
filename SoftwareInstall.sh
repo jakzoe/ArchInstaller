@@ -368,8 +368,8 @@ pacman -S python-chardet python-requests python-pillow
 # waybar: similar to a task bar
 # desktop portal: GUI Apps and environment communication (e.g. browser opening files app/chooser)
 # rofi: application search menu
-# swaybg: set wallpaper
-# swayidle: automatic screen locking/timeout etc.
+# hyprpaper: set wallpaper
+# hypridle: automatic screen locking/timeout etc.
 # kitty: terminal
 # socat: used for hyprland IP C (socket communication)
 
@@ -416,8 +416,8 @@ chmod 660 \$XDG_RUNTIME_DIR/pipewire-0
 
 
 # hyprpicker: color picker
-# swaylock effects: another version of swaylock, locks screen
-yay -S hyprpicker-git swaylock-effects-git
+# hyprlock: locks screen
+yay -S hyprpicker-git hyprlock
 
 # screenshots, since flameshot does not work:
 # grim: screenshot, slurp: select region
