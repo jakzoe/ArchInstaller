@@ -417,7 +417,7 @@ chmod 660 \$XDG_RUNTIME_DIR/pipewire-0
 
 # hyprpicker: color picker
 # hyprlock: locks screen
-yay -S hyprpicker-git hyprlock
+yay -S hyprpicker hyprlock
 
 # screenshots, since flameshot does not work:
 # grim: screenshot, slurp: select region
