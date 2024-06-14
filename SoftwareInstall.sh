@@ -247,7 +247,8 @@ sudo ufw enable
 #sudo systemctl start nftables
 
 # install Proton-VPN
-yay -S protonvpn-cli
+yay -S proton-vpn-gtk-app
+# yay -S protonvpn-cli
 # protonvpn-cli login proton_emailaddress
 # protonvpn-cli ks --permanent
 # protonvpn-cli c -f (provide password from proton vpn website)
