@@ -472,6 +472,11 @@ mkdir -p /home/$USER_NAME/.config/xfce4
 echo "TerminalEmulator=kitty
 TerminalEmulatorDismissed=true" > /home/$USER_NAME/.config/xfce4/helpers.rc
 
+# set bookmarks
+mkdir -p /home/$USER_NAME/.config/gtk-3.0
+echo "file:///run/user/1000/screenshots
+file:///tmp/$USER_NAME-cache
+" >> /home/$USER_NAME/.config/gtk-3.0/bookmarks
 
 # keyd: configure shortcuts, e.g. caps lock + h = left, caps lock + l = right and so on
 yay -S keyd
