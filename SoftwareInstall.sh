@@ -579,6 +579,7 @@ auto_start+=("mkidr -p /run/user/$USER_ID/JNA && ln -s /run/user/$USER_ID/JNA /h
 # blacklist style, leave the ones in the array on hard disk only
 directories=(
   #"yay"
+  "keepassxc"
 )
 
 rm -rf /home/$USER_NAME/.cache
