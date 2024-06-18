@@ -904,7 +904,8 @@ sudo systemctl enable preload
 yay -S brave-bin
 yay -S visual-studio-code-bin
 pacman -S gimp vlc hunspell hunspell-en_us hunspell-de libreoffice-still # -fresh
-
+# proxychains as a more general solution compared to torsocks
+pacman -S torbrowser-launcher proxychains-ng
 # does not work with Wayland/Hyprland
 #pacman -S discord
 #yay -S webcord-bin
