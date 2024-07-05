@@ -936,6 +936,9 @@ pacman -S yt-dlp ffmpeg
 
 pacman -S noise-suppression-for-voice
 
+# set the password with "jupyter lab password" and start with "jupyter lab"/"jupyter lab --no-browser --port 9999"
+pacman -S jupyterlab python-ipykernel
+
 #yay -S ttf-ms-win11-auto
 
 #====Security====
