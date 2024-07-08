@@ -181,6 +181,9 @@ locknano() {
   sudo chattr +i $1
 }
 
+# setting fd as the default source for fzf (to parse .fdignore)
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 eval "$(zoxide init --cmd cd zsh)"
