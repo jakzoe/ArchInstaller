@@ -106,6 +106,8 @@ cd ..
 rm -rf yay-bin
 cd
 
+yay -Y --gendb
+
 function pacman() {
   /usr/bin/sudo /usr/bin/pacman --needed --noconfirm "$@"
 }
@@ -1058,6 +1060,8 @@ yay -S informant
 
 # set default answers
 yay --save --answerdiff All --answerupgrade All
+# update all -git packages on every execution (instead of doing that manually via yay -Syu --devel)
+yay -Y --devel --save
 
 # kill the sudo -v job
 jobs
