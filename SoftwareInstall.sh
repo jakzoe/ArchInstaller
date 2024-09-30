@@ -835,7 +835,7 @@ xkb_symbols "basic" {
 '
 
 #====Basic Tools====
-pacman -S wget exa bat htop iotop btop nano openssh ncdu acpi exfatprogs ntfs-3g udiskie meld lshw
+pacman -S wget exa bat htop iotop btop nano openssh ncdu acpi exfatprogs ntfs-3g udiskie android-file-transfer meld lshw
 
 # PDFs are by default in /var/spool/cups-pdf/$USER_NAME, if not changed in /etc/cups/cups-pdf.conf
 pacman -S cups cups-pdf
