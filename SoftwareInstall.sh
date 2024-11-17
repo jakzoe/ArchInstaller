@@ -332,14 +332,13 @@ curl ipinfo.io
 
 # additional fonts/emojis/icons, using "Arc-Dark" theme. There are even more in the AUR, one might want to try them.
 # (see e.g. https://itsfoss.com/icon-themes-arch-linux/ for ideas)
-pacman -S ttf-jetbrains-mono-nerd noto-fonts-emoji arc-gtk-theme papirus-icon-theme noto-fonts
+pacman -S ttf-jetbrains-mono-nerd noto-fonts-emoji arc-gtk-theme papirus-icon-theme noto-fonts vimix-cursors
 # manages the aboth
 #pacman -S lxappearance
 
-sudo bash -c 'echo "
-[Icon Theme]
-Inherits=Papirus-Dark
-" > /usr/share/icons/default/index.theme'
+sudo mkdir -p /usr/share/icons/default/
+sudo bash -c 'echo "[Icon Theme]
+Inherits=Papirus-Dark" > /usr/share/icons/default/index.theme'
 
 
 # audio
@@ -368,6 +367,7 @@ fi
 pacman -S python-chardet python-requests python-pillow
 
 # hyprland: window manager
+# hyprcursor: cursor that is better than xcursors
 # waybar: similar to a task bar
 # desktop portal: GUI Apps and environment communication (e.g. browser opening files app/chooser)
 # rofi: application search menu
@@ -376,12 +376,28 @@ pacman -S python-chardet python-requests python-pillow
 # kitty: terminal
 # socat: used for hyprland IP C (socket communication)
 
-pacman -S hyprland waybar xdg-desktop-portal-hyprland xdg-desktop-portal-gtk rofi hypridle kitty socat #hyprpaper
+pacman -S hyprland hyprcursor waybar xdg-desktop-portal-hyprland xdg-desktop-portal-gtk rofi hypridle kitty socat #hyprpaper
 
 auto_start+=(
 "export XDG_SCREENSHOTS_DIR=/run/user/$USER_ID/screenshots
 mkdir \$XDG_SCREENSHOTS_DIR
+
+export HYPRCURSOR_THEME=Future-Cyan-Hyprcursor_Theme
+export HYPRCURSOR_SIZE=24
+export XCURSOR_THEME=Vimix-cursors
+export XCURSOR_SIZE=24
+export XCURSOR_PATH=\${XCURSOR_PATH}:~/.local/share/icons
 export GTK_THEME=Arc-Dark
+export GTK2_RC_FILES=/usr/share/themes/Arc-Dark/gtk-2.0/gtkrc
+export GDK_BACKEND='wayland,x11,*'
+export QT_QPA_PLATFORM='wayland;xcb'
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+
+# since the GPU is disabled (fall back to iGPU)
+export VK_DRIVER_FILES=
+# wrapping the launcher 
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # kitty uses XDG_RUNTIME_DIR by default, but also changes it's permissions by calling os.chmod(candidate, 0o700) in kitty/kitty/constants.py
 export KITTY_RUNTIME_DIRECTORY=\$XDG_RUNTIME_DIR/kitty
 # not necessary, but less errors
@@ -763,6 +779,7 @@ copy_conf() {
   mkdir other
   cp /usr/share/zsh/manjaro-zsh-config other
   su_cp /usr/local/bin/Help other
+  cp ~/.local/share/icons/Future-Cyan-Hyprcursor_Theme other
 
   #mkdir keymanager
   #sudo cp /home/$BROWSER_USER_NAME/Keys keymanager
@@ -790,6 +807,8 @@ cp $dot/home/* /home/$USER_NAME
 su_cp $dot/other/manjaro-zsh-config /usr/share/zsh
 su_cp $dot/other/Help /usr/local/bin
 sudo chmod +x /usr/local/bin/Help
+cp $dot/other/Future-Cyan-Hyprcursor_Theme /home/$USER_NAME/.local/share/icons
+ln --symbolic /usr/share/icons/Vimix-cursors /home/$USER_NAME/.local/share/icons/default
 #su_cp $dot/keymanager/* /home/$BROWSER_USER_NAME
 #sudo chown $BROWSER_USER_NAME:$BROWSER_USER_NAME /home/$BROWSER_USER_NAME/keyfile /home/$BROWSER_USER_NAME/Keys
 #sudo chmod 600 /home/$BROWSER_USER_NAME/Keys
@@ -1004,7 +1023,7 @@ pacman -S usbguard
 # Warning: Make sure to actually configure the daemon before starting/enabling it or all USB devices, including keyboard and mouse, will immediately be blocked
 # allow all devices connected at the current moment:
 sudo usbguard generate-policy > /etc/usbguard/rules.conf
-# disable the policy for a moment, revert my using block instead of allow (man usbguard)
+# disable the policy for a moment, revert by using block instead of allow (man usbguard)
 # sudo usbguard set-parameter ImplicitPolicyTarget allow
 sudo systemctl enable usbguard.service
 sudo systemctl start usbguard.service
@@ -1041,9 +1060,22 @@ pacman -S xorg-xauth
 gsettings set org.gnome.desktop.interface gtk-theme "Arc-Dark"
 gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-pacman -S xfconf
-xfconf-query --create -t string -c xsettings -p /Net/ThemeName -s "Arc-Dark"
-xfconf-query --create -t string -c xsettings -p /Net/IconThemeName -s "Papirus-Dark"
+gsettings set org.gnome.desktop.interface cursor-theme "Vimix-cursors"
+gsettings set org.gnome.desktop.interface cursor-size 24
+
+~/.config/gtk-3.0/settings.ini
+[Settings]
+gtk-cursor-theme-name=cursor_theme_name
+
+~/.gtkrc-2.0
+gtk-cursor-theme-name="cursor_theme_name"
+
+
+# pacman -S xfconf
+# xfconf-query --create -t string -c xsettings -p /Net/ThemeName -s "Arc-Dark"
+# xfconf-query --create -t string -c xsettings -p /Net/IconThemeName -s "Papirus-Dark"
+# xfconf-query --channel xsettings --property /Gtk/CursorThemeName --set "Vimix-cursors"
+# xfconf-query --channel xsettings --property /Gtk/CursorThemeSize --set 24
 
 # in case X11 windows should be forwarded too. Currently, it would have to be run manually afterwards. Not used at the moment anyway though.
 #sudo -u $USER_NAME xauth generate :0 . trusted
