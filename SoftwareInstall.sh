@@ -485,17 +485,6 @@ include \"/usr/share/nano-syntax-highlighting/*.nanorc\"
 # fix typo
 sudo sed -i 's/icolor brightnormal/icolor normal/g' /usr/share/nano-syntax-highlighting/nanorc.nanorc
 
-# set the default TerminalEmulator to kitty for exo-open
-mkdir -p /home/$USER_NAME/.config/xfce4
-echo "TerminalEmulator=kitty
-TerminalEmulatorDismissed=true" > /home/$USER_NAME/.config/xfce4/helpers.rc
-
-# set bookmarks
-mkdir -p /home/$USER_NAME/.config/gtk-3.0
-echo "file:///run/user/1000/screenshots
-file:///tmp/$USER_NAME-cache
-" >> /home/$USER_NAME/.config/gtk-3.0/bookmarks
-
 # keyd: configure shortcuts, e.g. caps lock + h = left, caps lock + l = right and so on
 yay -S keyd
 sudo systemctl enable keyd
@@ -1063,12 +1052,39 @@ gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gnome.desktop.interface cursor-theme "Vimix-cursors"
 gsettings set org.gnome.desktop.interface cursor-size 24
 
-~/.config/gtk-3.0/settings.ini
-[Settings]
-gtk-cursor-theme-name=cursor_theme_name
+# GTK settings
 
-~/.gtkrc-2.0
-gtk-cursor-theme-name="cursor_theme_name"
+mkdir -p /home/$USER_NAME/.config/gtk-3.0
+echo '
+[Settings]
+gtk-theme-name=Arc-Dark
+gtk-icon-theme-name=Papirus-Dark
+gtk-font-name=Cantarell 11
+gtk-cursor-theme-name=default
+gtk-cursor-theme-size=24
+gtk-toolbar-style=GTK_TOOLBAR_BOTH
+gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+gtk-button-images=1
+gtk-menu-images=1
+gtk-enable-event-sounds=1
+gtk-enable-input-feedback-sounds=0
+gtk-xft-antialias=1
+gtk-xft-hinting=1
+gtk-xft-hintstyle=hintslight
+gtk-xft-rgba=rgb
+gtk-application-prefer-dark-theme=1
+' > /home/$USER_NAME/.config/gtk-3.0/settings.ini
+
+# set bookmarks
+echo "file:///run/user/1000/screenshots
+file:///tmp/$USER_NAME-cache
+" >> /home/$USER_NAME/.config/gtk-3.0/bookmarks
+
+
+# set the default TerminalEmulator to kitty for exo-open
+mkdir -p /home/$USER_NAME/.config/xfce4
+echo "TerminalEmulator=kitty
+TerminalEmulatorDismissed=true" > /home/$USER_NAME/.config/xfce4/helpers.rc
 
 
 # pacman -S xfconf
