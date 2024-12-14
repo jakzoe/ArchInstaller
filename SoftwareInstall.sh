@@ -938,8 +938,6 @@ sudo ln -s /usr/share/fontconfig/conf.avail/09-texlive-fonts.conf /etc/fonts/con
 # running mkfontscale && mkfontdir explicitly, and therefore installing xorg-mkfontscale and xorg-mkfontdir, might not be necessary, though
 pacman -S xorg-mkfontscale xorg-mkfontdir
 fc-cache && mkfontscale && mkfontdir
-# syntax highlighted source code for LaTeX
-pacman -S minted
 
 # video-downloader
 pacman -S yt-dlp ffmpeg
