@@ -7,10 +7,10 @@
       "name": "latexmk",
       "tools": ["latexmk"]
     },
-    {
-      "name": "latexmk with shell escape",
-      "tools": ["latexmk_shell_escape"]
-    },
+    // {
+    //   "name": "latexmk with shell escape",
+    //   "tools": ["latexmk_shell_escape"]
+    // },
     {
       "name": "latexmk (latexmkrc)",
       "tools": ["latexmk_rconly"]
@@ -60,22 +60,22 @@
       ],
       "env": {}
     },
-    {
-      "name": "latexmk_shell_escape",
-      "command": "latexmk",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-         "-pdf",
-//        "-outdir=%OUTDIR%",
-        "-outdir=/run/user/1000",
-        "-aux-directory=/run/user/1000",
-        "-shell-escape",
-        "%DOC%"
-      ],
-      "env": {}
-    },
+//     {
+//       "name": "latexmk_shell_escape",
+//       "command": "latexmk",
+//       "args": [
+//         "-synctex=1",
+//         "-interaction=nonstopmode",
+//         "-file-line-error",
+//          "-pdf",
+// //        "-outdir=%OUTDIR%",
+//         "-outdir=/run/user/1000",
+//         "-aux-directory=/run/user/1000",
+//         "-shell-escape",
+//         "%DOC%"
+//       ],
+//       "env": {}
+//     },
     {
       "name": "lualatexmk",
       "command": "latexmk",
@@ -183,9 +183,27 @@
   },
   "debug.onTaskErrors": "abort",
   "cSpell.userWords": [
+    "arduino",
+    "baudrate",
     "bluetoothctl",
+    "LGBTQIA",
     "RFCOMM"
   ],
   "python.languageServer": "Pylance",
-  "latex-workshop.latex.autoBuild.run": "never"
+  "latex-workshop.latex.autoBuild.run": "never",
+  "cSpell.enabled": true,
+  "cSpell.language": "en,de",
+  "cSpell.enableFiletypes": [
+    "!latex"
+  ],
+  "jupyter.widgetScriptSources": [
+    "jsdelivr.com",
+    "unpkg.com"
+  ],
+  "jupyter.askForKernelRestart": false,
+  "python.createEnvironment.trigger": "off",
+  "[latex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop"
+  },
+  "latex-workshop.formatting.latex": "latexindent"
 }
