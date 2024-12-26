@@ -467,7 +467,7 @@ sudo systemctl enable --now bluetooth.service
 pacman -S network-manager-applet nm-connection-editor brightnessctl
 
 # setup file explorer, together with common features e.g. access the filesystem of a plugged in smart phones, image previews etc.
-pacman -S thunar thunar-archive-plugin file-roller thunar-volman thunar-media-tags-plugin gvfs gvfs-mtp tumbler
+pacman -S thunar thunar-archive-plugin file-roller thunar-volman thunar-media-tags-plugin gvfs gvfs-mtp tumbler ffmpegthumbnailer
 # zsh instead of bash
 pacman -S zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search zsh-theme-powerlevel10k
 pacman -S bash-completion
