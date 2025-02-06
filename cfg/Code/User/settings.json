@@ -206,5 +206,6 @@
     "editor.defaultFormatter": "James-Yu.latex-workshop"
   },
   "latex-workshop.formatting.latex": "latexindent",
-  "explorer.confirmDragAndDrop": false
+  "explorer.confirmDragAndDrop": false,
+  "terminal.integrated.defaultProfile.linux": "zsh"
 }
