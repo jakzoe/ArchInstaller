@@ -925,6 +925,8 @@ pacman -S obsidian
 yay -S anki-bin
 yay -S zotero-bin
 
+pacman -S freecad graphviz
+
 # an alternative to downloading the AppImage from the official webpage
 # yay -S tutanota-desktop-bin joplin
 
