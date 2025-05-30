@@ -626,6 +626,25 @@ for directory in "${directories[@]}"; do
   sudo bash -c "echo \"ln -s $DISK_CACHE $RAM_CACHE\" >> /home/$BROWSER_USER_NAME/.bash_profile"
 done
 
+# move .cache dirs of certain apps to /run/user/$USER_ID too
+# the same concept/code as when moving the .cache dirs to /run/user
+
+PATHS=(
+  ".platformio/.cache"
+  ".jssc"
+)
+
+for REL_PATH in "${PATHS[@]}"; do
+  SRC="/run/user/$USER_ID/$REL_PATH"
+  DEST="/home/$USER_NAME/$REL_PATH"
+  mkdir -p "$SRC"
+  rm -rf "$DEST"
+  mkdir -p "$(dirname $DEST)"
+  ln -s "$SRC" "$DEST"
+  auto_start+=("mkdir -p $SRC")
+done
+
+
 
 #====Browser Security and Keepassxc====
 
@@ -892,8 +911,10 @@ yay -S downgrade fatrace
 # automatically loading often used files into RAM, although it may increase booting time.
 # In case one wants to decide which applications should be loaded into RAM explicitly, gopreload-git should be used.
 # One should keep in mind, that none of these tools receive updates anymore. They are probably considered being "done".
-yay -S preload
-sudo systemctl enable preload
+
+#yay -S preload
+# it consumes a lot of CPU, and its current efficiency is uncertain, as the last update was in 2013. Likely negligible in the age of SSDs.
+#sudo systemctl enable preload
 
 # TensorFlow/Machine Learning, Nvidia should already be installed (by ArchInstall.sh)
 # it is probably the easiest to run:
@@ -1081,7 +1102,7 @@ gtk-application-prefer-dark-theme=1
 ' > /home/$USER_NAME/.config/gtk-3.0/settings.ini
 
 # set bookmarks
-echo "file:///run/user/1000/screenshots
+echo "file:///run/user/$USER_ID/screenshots
 file:///tmp/$USER_NAME-cache
 " >> /home/$USER_NAME/.config/gtk-3.0/bookmarks
 
