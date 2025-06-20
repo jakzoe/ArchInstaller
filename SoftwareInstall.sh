@@ -967,7 +967,7 @@ pacman -S yt-dlp ffmpeg
 
 pacman -S noise-suppression-for-voice
 
-pacman -S shellcheck
+pacman -S shellcheck miniconda3
 
 # set the password with "jupyter lab password" and start with "jupyter lab"/"jupyter lab --no-browser --port 9999"
 pacman -S jupyterlab python-ipykernel python-ipympl jupyterlab-widgets
