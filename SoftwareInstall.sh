@@ -934,7 +934,7 @@ yay -S downgrade fatrace
 # these are large binaries that will be compiled in RAM. Since RAM-Cache-Cleaning is done after an execution of yay only, some packages are split into multiple iterations.
 yay -S brave-bin
 yay -S visual-studio-code-bin
-pacman -S gimp vlc vlc-gui-ncurses hunspell hunspell-en_us hunspell-de libreoffice-still # -fresh
+pacman -S gimp vlc vlc-plugin-ffmpeg vlc-gui-ncurses hunspell hunspell-en_us hunspell-de libreoffice-still # -fresh
 # proxychains as a more general solution compared to torsocks
 pacman -S torbrowser-launcher proxychains-ng
 # does not work with Wayland/Hyprland
