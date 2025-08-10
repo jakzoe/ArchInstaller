@@ -15,7 +15,8 @@ monitor_setup() {
   if [[ $1 == *"HDMI-A-1"* ]]; then
    # 1920/1.2 = 1600 (when placing eDP-1 on the left)
     hyprctl keyword monitor HDMI-A-1,preferred,0x0,1
-    hyprctl keyword monitor eDP-1,highres,1920x0,1.2
+#    hyprctl keyword monitor eDP-1,highres,1920x0,1.2
+    hyprctl keyword monitor eDP-1,highres,auto-right,1.2
     return 0
   fi
 

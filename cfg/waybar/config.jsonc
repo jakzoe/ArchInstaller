@@ -6,9 +6,9 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "height": 45,
-    "modules-left": ["hyprland/workspaces","wlr/taskbar","cpu","memory","disk"],
-    "modules-center": ["custom/updates","clock"],
-    "modules-right": ["hyprland/window","temperature","battery","pulseaudio","backlight","custom/playerctl","pulseaudio#microphone",/*"network",*/"tray","custom/weather"],
+    "modules-left": ["hyprland/workspaces","wlr/taskbar"/*,"cpu","memory","disk","custom/task" */],
+    "modules-center": [/*"custom/updates",*/"clock"],
+    "modules-right": ["hyprland/window"/*,"temperature"*/,"pulseaudio","backlight","custom/playerctl","battery","pulseaudio#microphone",/*"network",*/"tray"/*,"custom/weather"*/],
 
 
     "hyprland/workspaces": {
@@ -98,6 +98,15 @@
         "return-type" : "json"
     },
 
+
+   "custom/task": {
+        "tooltip" : true,
+        "format" : "{}",
+        "interval" : 30,
+        "exec" : "cat $XDG_RUNTIME_DIR/task.txt",
+        //"return-type" : "json"
+    },
+
     "tray": {
         "icon-size": 18,
         "spacing": 10
@@ -125,7 +134,7 @@
 
     "clock": {
     "format": "{:%d.%m %H:%M}  ",
-    "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+    "format-alt": "{:%A, %B %d, %Y (%R)}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
         "mode"          : "year",

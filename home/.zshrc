@@ -181,6 +181,17 @@ locknano() {
   sudo chattr +i $1
 }
 
+git() {
+    if [[ "$1" == "push" ]]; then
+        (play -q /home/user/push-it.mp3 > /dev/null 2>&1) & disown && command git push "${@:2}"
+    else
+        command git "$@"
+    fi
+}
+
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
 # setting fd as the default source for fzf (to parse .fdignore)
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 
