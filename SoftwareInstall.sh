@@ -284,7 +284,7 @@ pacman -S macchanger
 #sudo bash -c "
 #echo '[main]
 #systemd-resolved=false
-#'>> /etc/NetworkManager/conf.d/no-systemd-resolved.conf"
+#'> /etc/NetworkManager/conf.d/no-systemd-resolved.conf"
 # custom DNS, using cloudflare 1.1.1.1 and 1.0.0.1 and ISP backup (localhost)
 #sudo bash -c "
 #echo '
@@ -306,7 +306,7 @@ sudo ln -s /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 sudo bash -c "
 echo '[main]
 dns=systemd-resolved
-' >> /etc/NetworkManager/conf.d/dns.conf"
+' > /etc/NetworkManager/conf.d/dns.conf"
 
 # DHCP and VPN clients might use resolvconf to set the DNS server. Remove the package when systemd-resolved is not running, else might cause problems
 pacman -S systemd-resolvconf
@@ -317,14 +317,14 @@ sudo  mkdir -p /etc/systemd/resolved.conf.d
 sudo bash -c "
 echo '[Resolve]
 DNSSEC=allow-downgrade
-' >> /etc/systemd/resolved.conf.d/dnssec.conf"
+' > /etc/systemd/resolved.conf.d/dnssec.conf"
 
 # enable DNS over TLS, change to DNSOverTLS=opportunistic to only use DNS over TLS if the server supports it, DNSOverTLS=yes to always try to use it, even if not supported
 sudo bash -c "
 echo '[Resolve]
 DNS=1.1.1.1#cloudflare-dns.com
 DNSOverTLS=opportunistic
-' >> /etc/systemd/resolved.conf.d/dns_over_tls.conf"
+' > /etc/systemd/resolved.conf.d/dns_over_tls.conf"
 
 curl ipinfo.io
 
@@ -934,7 +934,7 @@ yay -S downgrade fatrace
 # these are large binaries that will be compiled in RAM. Since RAM-Cache-Cleaning is done after an execution of yay only, some packages are split into multiple iterations.
 yay -S brave-bin
 yay -S visual-studio-code-bin
-pacman -S gimp vlc vlc-plugin-ffmpeg vlc-gui-ncurses hunspell hunspell-en_us hunspell-de libreoffice-still # -fresh
+pacman -S gimp vlc vlc-plugin-ffmpeg vlc-gui-ncurses hunspell hunspell-en_us hunspell-de hyphen-en hyphen-de libreoffice-still # -fresh
 # proxychains as a more general solution compared to torsocks
 pacman -S torbrowser-launcher proxychains-ng
 # does not work with Wayland/Hyprland
@@ -1105,7 +1105,7 @@ gtk-application-prefer-dark-theme=1
 # set bookmarks
 echo "file:///run/user/$USER_ID/screenshots
 file:///tmp/$USER_NAME-cache
-" >> /home/$USER_NAME/.config/gtk-3.0/bookmarks
+" > /home/$USER_NAME/.config/gtk-3.0/bookmarks
 
 
 # set the default TerminalEmulator to kitty for exo-open
