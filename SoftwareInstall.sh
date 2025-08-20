@@ -332,7 +332,8 @@ curl ipinfo.io
 
 # additional fonts/emojis/icons, using "Arc-Dark" theme. There are even more in the AUR, one might want to try them.
 # (see e.g. https://itsfoss.com/icon-themes-arch-linux/ for ideas)
-pacman -S ttf-jetbrains-mono-nerd noto-fonts-emoji arc-gtk-theme papirus-icon-theme noto-fonts vimix-cursors
+pacman -S ttf-jetbrains-mono-nerd noto-fonts-emoji papirus-icon-theme noto-fonts vimix-cursors
+yay -S arc-gtk-theme
 # manages the aboth
 #pacman -S lxappearance
 
@@ -380,8 +381,6 @@ pacman -S hyprland hyprcursor waybar xdg-desktop-portal-hyprland xdg-desktop-por
 
 auto_start+=(
 "export XDG_SCREENSHOTS_DIR=/run/user/$USER_ID/screenshots
-mkdir \$XDG_SCREENSHOTS_DIR
-
 export HYPRCURSOR_THEME=Future-Cyan-Hyprcursor_Theme
 export HYPRCURSOR_SIZE=24
 export XCURSOR_THEME=Vimix-cursors
@@ -469,7 +468,8 @@ pacman -S network-manager-applet nm-connection-editor brightnessctl
 # setup file explorer, together with common features e.g. access the filesystem of a plugged in smart phones, image previews etc.
 pacman -S thunar thunar-archive-plugin file-roller thunar-volman thunar-media-tags-plugin gvfs gvfs-mtp tumbler ffmpegthumbnailer
 # zsh instead of bash
-pacman -S zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search zsh-theme-powerlevel10k
+pacman -S zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search
+yay -S zsh-theme-powerlevel10k
 pacman -S bash-completion
 # alternative to "cd"
 pacman -S zoxide fzf
@@ -748,55 +748,6 @@ su_cp() {
   done
 }
 
-# unused method, has to be run externally
-copy_conf() {
-  cd
-  mkdir ArchInstaller
-  cd ArchInstaller
-
-  mkdir etc
-  cp /etc/keyd etc
-  # custom message on tty login
-  cp /etc/issue etc
-
-  mkdir cfg
-  CONFIG_DIR=~/.config
-  cp $CONFIG_DIR/dunst cfg
-  cp $CONFIG_DIR/hypr cfg
-  cp $CONFIG_DIR/kitty cfg
-  cp $CONFIG_DIR/pipewire cfg
-  cp $CONFIG_DIR/ranger cfg
-  cp $CONFIG_DIR/rofi cfg
-  cp $CONFIG_DIR/swaylock cfg
-  cp $CONFIG_DIR/waybar cfg
-  cp $CONFIG_DIR/mimeapps.list cfg
-  mkdir -p cfg/Code/User
-  # turn off telemetry and make titleBarStyle dark
-  # "telemetry.telemetryLevel": "off",
-  # "window.titleBarStyle": "custom",
-  # "window.dialogStyle": "custom"
-  # maybe also add flag to run natively under wayland?
-  cp $CONFIG_DIR/Code/User/settings.json cfg/Code/User
-  cp $CONFIG_DIR/Code/User/snippets cfg/Code/User
-
-  mkdir home
-  cp ~/.bashrc home
-  cp ~/.zshrc home
-  cp ~/.p10k.zsh home
-
-  mkdir other
-  cp /usr/share/zsh/manjaro-zsh-config other
-  su_cp /usr/local/bin/Help other
-  cp ~/.local/share/icons/Future-Cyan-Hyprcursor_Theme other
-
-  #mkdir keymanager
-  #sudo cp /home/$BROWSER_USER_NAME/Keys keymanager
-  #sudo cp /home/$BROWSER_USER_NAME/keyfile keymanager
-
-  #copy ~/.config/rclone/rclone.conf
-  #copy browser-profile
-}
-
 # include dot files in *
 if [ -n "$BASH_VERSION" ]; then
   shopt -s dotglob
@@ -932,8 +883,7 @@ yay -S downgrade fatrace
 # brave: browser (scaling bug on startup in hyprland is "solved" in the Hyprland IPC script)
 # vscode: code editor (one might want to use the official "code" or AUR vscodium package instead)
 # these are large binaries that will be compiled in RAM. Since RAM-Cache-Cleaning is done after an execution of yay only, some packages are split into multiple iterations.
-yay -S brave-bin
-yay -S visual-studio-code-bin
+yay -S brave-bin visual-studio-code-bin
 pacman -S gimp vlc vlc-plugin-ffmpeg vlc-gui-ncurses hunspell hunspell-en_us hunspell-de hyphen-en hyphen-de libreoffice-still # -fresh
 # proxychains as a more general solution compared to torsocks
 pacman -S torbrowser-launcher proxychains-ng
@@ -943,13 +893,12 @@ pacman -S torbrowser-launcher proxychains-ng
 yay -S discord-chat-exporter-cli
 
 pacman -S obsidian
-yay -S anki-bin
-yay -S zotero-bin
+yay -S anki-bin zotero-bin
 
 pacman -S freecad graphviz
 
 # an alternative to downloading the AppImage from the official webpage
-# yay -S tutanota-desktop-bin joplin
+yay -S tutanota-desktop-bin todoist-appimage
 
 # to install pentesting tools e.g. nmap, hashcat, dirb, gobuster etc., add blackarch mirrors
 
