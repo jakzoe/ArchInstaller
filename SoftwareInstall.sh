@@ -981,7 +981,7 @@ mkdir /home/$USER_NAME/.local/Trash
 sudo rm -r /home/$USER_NAME/.local/share/Trash
 sudo ln -s /home/$USER_NAME/.local/Trash /home/$USER_NAME/.local/share/Trash
 
-pacman -S arch-audit
+pacman -S arch-audit pkgstats
 
 : '
 pacman -S usbguard
