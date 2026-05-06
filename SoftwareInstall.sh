@@ -1079,6 +1079,7 @@ sudo du -sh ~/.cache
 
 # removing orphans:
 #pacman -Rns $(pacman -Qdtq)
+pacman -S rebuild-detector
 # informant: blocks pacman until all downloaded Arch-Newsletters are marked as read
 yay -S informant
 
