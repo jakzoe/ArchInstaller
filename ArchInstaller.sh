@@ -288,13 +288,14 @@ fi
 
 if lspci | grep -A 2 -E "(VGA|3D)" | grep -iq nvidia; then
 
+	# for older GPUs, you might need e.g. nvidia-580xx-dkms from the AUR with dkms
     if [ $KERNEL == "linux" ]; then
-        pacman -S nvidia --noconfirm --needed
+        pacman -S nvidia-open --noconfirm --needed
     elif [ $KERNEL == "linux-lts" ]; then
-        pacman -S nvidia-lts --noconfirm --needed
+        pacman -S nvidia-open-lts --noconfirm --needed
     else
 	# build nvidia module with kernel headers, will work for every kernel package
-        pacman -S $KERNEL-headers nvidia-dkms --noconfirm --needed
+        pacman -S $KERNEL-headers nvidia-open-dkms --noconfirm --needed
     fi
 
 	# if DRM kernel mode setting etc. is not needed (when the GPU is not used to render the display)
