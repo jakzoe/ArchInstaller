@@ -892,8 +892,8 @@ pacman -S torbrowser-launcher proxychains-ng
 #yay -S webcord-bin
 yay -S discord-chat-exporter-cli
 
-pacman -S obsidian
-yay -S anki-bin zotero-bin
+pacman -S obsidian anki
+yay -S zotero-bin
 
 pacman -S freecad graphviz
 
