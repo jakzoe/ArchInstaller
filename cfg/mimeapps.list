@@ -129,6 +129,7 @@ x-scheme-handler/about=brave-browser.desktop
 x-scheme-handler/unknown=brave-browser.desktop
 text/x-tex=sublime_text.desktop
 application/x-gnome-saved-search=nemo.desktop
+x-scheme-handler/tuta=tutanota-desktop.desktop
 
 [Added Associations]
 x-scheme-handler/http=brave-browser.desktop;
@@ -144,7 +145,7 @@ application/x-extension-xhtml=brave-browser.desktop;
 application/x-extension-xht=brave-browser.desktop;
 image/jpeg=brave-browser.desktop;gimp.desktop;viewnior.desktop;gpicview.desktop;
 image/png=viewnior.desktop;gpicview.desktop;
-text/plain=mousepad.desktop;userapp-processing-B60DS1.desktop;
+text/plain=org.gnome.TextEditor.desktop;mousepad.desktop;userapp-processing-B60DS1.desktop;
 x-scheme-handler/mailto=userapp-Thunderbird.desktop;
 message/rfc822=userapp-Thunderbird.desktop;
 application/pdf=epdfview.desktop;brave-browser.desktop;brave-browser.desktop;brave-browser.desktop;

@@ -217,5 +217,6 @@
   },
   "platformio-ide.reopenSerialMonitorDelay": 500,
   "editor.wordWrap": "on",
-  "workbench.editor.wrapTabs": true
+  "workbench.editor.wrapTabs": true,
+  "gitlens.views.commitDetails.files.layout": "tree"
 }
